@@ -1,0 +1,13 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model Agent
+@{
+    ViewData["Title"] = "Confirmação de Deleção";
+}
+<div class="text-center">
+
+    <h3>Realmente deseja apagar este agente? Nome: @Model.NameAgent?</h3>
+
+</div>
+
+<a class="btn btn-primary btn-block" role="button" asp-controller="Agent" asp-action="Index">Cancelar Exclusão</a>
+<a class="btn btn-danger btn-block" role="button" asp-route-id="@Model.IdAgent" asp-controller="Agent" asp-action="Delete">Confirmar Exclusão</a>

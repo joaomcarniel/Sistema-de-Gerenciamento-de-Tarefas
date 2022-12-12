@@ -1,0 +1,29 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model Agent
+@{
+    ViewData["Title"] = "Editar Agente";
+}
+<div class="text-center">
+
+    <h1 class="display-4">Editar Agente</h1>
+
+</div>
+
+<form asp-controller="Agent" asp-action="Update" method="post">
+    <input type="hidden" asp-for="IdAgent" />
+    <div class="form-group">
+        <label for="NameAgent">Nome do Agente</label>
+        <input type="text" asp-for="NameAgent" class="form-control" placeholder="Digite o nome do Agente">
+        @Html.ValidationMessageFor(x => x.NameAgent)
+    </div>
+    <div class="form-group">
+        <label for="StatusAgent">Status do Agente</label>
+        <input type="text" asp-for="StatusAgent" class="form-control" placeholder="Digite o status do Agente">
+        @Html.ValidationMessageFor(x => x.StatusAgent)
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Agent" asp-action="Index" role="button">Voltar</a>
+</form>
+
+
+

@@ -1,0 +1,44 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model Customer
+@{
+    ViewData["Title"] = "Editar Cliente";
+}
+<div class="text-center">
+
+    <h1 class="display-4">Editar Cliente</h1>
+
+</div>
+
+<form asp-controller="Customer" asp-action="Update" method="post">
+    <input type="hidden" asp-for="IdCustomer" />
+    <div class="form-group">
+        <label for="StatusCustomer">Status do Cliente</label>
+        <input type="text" asp-for="StatusCustomer" class="form-control" placeholder="Digite o Status do Cliente">
+        @Html.ValidationMessageFor(x => x.StatusCustomer)
+    </div>
+    <div class="form-group">
+        <label for="NameCustomer">Nome do Cliente</label>
+        <input type="text" asp-for="NameCustomer" class="form-control" placeholder="Digite o nome do Cliente">
+        @Html.ValidationMessageFor(x => x.NameCustomer)
+    </div>
+    <div class="form-group">
+        <label for="CpfCustomer">CPF do Cliente</label>
+        <input type="text" asp-for="CpfCustomer" class="form-control" placeholder="Digite o CPF do Cliente" readonly>
+        @Html.ValidationMessageFor(x => x.CpfCustomer)
+    </div>
+    <div class="form-group">
+        <label for="AddressCustomer">Endereço do Cliente</label>
+        <input type="text" asp-for="AddressCustomer" class="form-control" placeholder="Digite o Endereço do Cliente">
+        @Html.ValidationMessageFor(x => x.AddressCustomer)
+    </div>
+    <div class="form-group">
+        <label for="TelephoneCustomer">Telefone do Cliente</label>
+        <input type="text" asp-for="TelephoneCustomer" class="form-control" placeholder="Digite o Telefone do Cliente">
+        @Html.ValidationMessageFor(x => x.TelephoneCustomer)
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Customer" asp-action="Index" role="button">Voltar</a>
+</form>
+
+
+

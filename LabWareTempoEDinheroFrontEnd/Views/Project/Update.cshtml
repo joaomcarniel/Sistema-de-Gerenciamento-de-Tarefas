@@ -1,0 +1,54 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model Project
+@{
+    ViewData["Title"] = "Editar Projeto";
+}
+<div class="text-center">
+
+    <h1 class="display-4">Editar Projeto</h1>
+
+</div>
+
+<form asp-controller="Project" asp-action="Update" method="post">
+    <input type="hidden" asp-for="IdProject" />
+    <div class="form-group">
+        <label for="IdCustomer">Id do Cliente</label>
+        <input type="text" asp-for="IdCustomer" class="form-control" placeholder="Digite o Id do Cliente" readonly>
+        @Html.ValidationMessageFor(x => x.IdCustomer)
+    </div>
+    <div class="form-group">
+        <label for="StatusProject">Status do Projeto</label>
+        <input type="text" asp-for="StatusProject" class="form-control" placeholder="Digite o Status do Projeto">
+        @Html.ValidationMessageFor(x => x.StatusProject)
+    </div>
+    <div class="form-group">
+        <label for="NameProject">Nome do Projeto</label>
+        <input type="text" asp-for="NameProject" class="form-control" placeholder="Digite o Nome do Projeto">
+        @Html.ValidationMessageFor(x => x.NameProject)
+    </div>
+    <div class="form-group">
+        <label for="LeaderProject">Líder do Projeto</label>
+        <input type="text" asp-for="LeaderProject" class="form-control" placeholder="Digite o Código do Líder do Projeto">
+        @Html.ValidationMessageFor(x => x.LeaderProject)
+    </div>
+    <div class="form-group">
+        <label for="StartDate">Data de Início</label>
+        <input type="text" asp-for="StartDate" class="form-control" placeholder="Digite a Data de Início">
+        @Html.ValidationMessageFor(x => x.StartDate)
+    </div>
+    <div class="form-group">
+        <label for="EndDate">Data de Término</label>
+        <input type="text" asp-for="EndDate" class="form-control" placeholder="Digite a Data de Término">
+        @Html.ValidationMessageFor(x => x.EndDate)
+    </div>
+    <div class="form-group">
+        <label for="DescriptionProject">Descrição do Projeto</label>
+        <input type="text" asp-for="DescriptionProject" class="form-control" placeholder="Digite a Descrição do Projeto">
+        @Html.ValidationMessageFor(x => x.DescriptionProject)
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Project" asp-action="Index" role="button">Voltar</a>
+</form>
+
+
+

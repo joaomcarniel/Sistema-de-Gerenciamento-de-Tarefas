@@ -1,0 +1,35 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model TaskModel
+@{
+    ViewData["Title"] = "Editar Tarefa";
+}
+<div class="text-center">
+
+    <h1 class="display-4">Editar Tarefa</h1>
+
+</div>
+
+<form asp-controller="Task" asp-action="Update" method="post">
+    <input type="hidden" asp-for="IdTask" />
+    <input type="hidden" asp-for="IdTask" />
+    <div class="form-group">
+        <label for="IdAgentProject">Id Relação Agente Projeto</label>
+        <input type="text" asp-for="IdAgentProject" class="form-control" placeholder="Digite o nome do Agente do Projeto" readonly>
+        @Html.ValidationMessageFor(x => x.IdAgentProject)
+    </div>
+    <div class="form-group">
+        <label for="Objective">Objetivo</label>
+        <input type="text" asp-for="Objective" class="form-control" placeholder="Objetivo">
+        @Html.ValidationMessageFor(x => x.Objective)
+    </div>
+    <div class="form-group">
+        <label for="StatusTask">Status da Tarefa</label>
+        <input type="text" asp-for="StatusTask" class="form-control" placeholder="Status da Tarefa">
+        @Html.ValidationMessageFor(x => x.StatusTask)
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Alterar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Task" asp-action="Index" role="button">Voltar</a>
+</form>
+
+
+

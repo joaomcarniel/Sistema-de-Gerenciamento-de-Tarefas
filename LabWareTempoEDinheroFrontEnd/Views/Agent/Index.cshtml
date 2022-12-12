@@ -1,0 +1,47 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model List<Agent>
+@{
+    ViewData["Title"] = "Cadastro de Agente";
+}
+
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Agent" asp-action="Create">Adicionar Agente</a>
+    </div>
+    <br/>
+
+    <h1 class="display-4">Listagem de Agentes</h1>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id Agente</th>
+                <th scope="col">Nome Agente</th>
+                <th scope="col">Status do Agente</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var agent in Model)
+                {
+                    <tr>
+                        <th scope="row">@agent.IdAgent</th>
+                        <td>@agent.NameAgent</td>
+                        <td>@agent.StatusAgent</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@agent.IdAgent" asp-controller="Agent" asp-action="Update">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@agent.IdAgent" asp-controller="Agent" asp-action="ConfirmDelete">Deletar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

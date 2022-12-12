@@ -1,0 +1,30 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model Timecontroltask
+@{
+    ViewData["Title"] = "Cadastrar Novo Registro de Tempo";
+}
+<div class="text-center">
+
+    <h1 class="display-4">Cadastrar Novo Registro de Tempo</h1>
+
+</div>
+
+<form asp-controller="TimeControlTask" asp-action="CreateOnDatabase" method="post">
+    <div class="form-group">
+        <label for="IdTask">Id da Tarefa</label>
+        <input type="text" asp-for="IdTask" class="form-control" placeholder="Digite o Id da Tarefa">
+    </div>
+    <div class="form-group">
+        <label for="StartTime">Start do Tempo</label>
+        <input type="text" asp-for="StartTime" class="form-control" placeholder="Digite o Start do Tempo">
+    </div>
+    <div class="form-group">
+        <label for="StopTime">Stop do Tempo</label>
+        <input type="text" asp-for="StopTime" class="form-control" placeholder="Digite o Stop do Tempo">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="TimeControlTask" asp-action="Index" role="button">Voltar</a>
+</form>
+
+
+

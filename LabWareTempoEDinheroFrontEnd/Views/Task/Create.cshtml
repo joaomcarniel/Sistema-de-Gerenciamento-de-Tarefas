@@ -1,0 +1,30 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model TaskModel
+@{
+    ViewData["Title"] = "Criar Tarefa";
+}
+<div class="text-center">
+
+    <h1 class="display-4">Criar Tarefa</h1>
+
+</div>
+
+<form asp-controller="Task" asp-action="CreateOnDatabase" method="post">
+    <div class="form-group">
+        <label for="IdAgentProject">Id do Relacionamento entre Agente e o Projeto</label>
+        <input type="text" asp-for="IdAgentProject" class="form-control" placeholder="Id do Relacionamento entre Agente e o Projeto">
+    </div>
+    <div class="form-group">
+        <label for="Objective">Objetivo</label>
+        <input type="text" asp-for="Objective" class="form-control" placeholder="Digite o Objetivo">
+    </div>
+    <div class="form-group">
+        <label for="StatusTask">Status da Tarefa</label>
+        <input type="text" asp-for="StatusTask" class="form-control" placeholder="Digite o Status da Tarefa">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Task" asp-action="Index" role="button">Voltar</a>
+</form>
+
+
+

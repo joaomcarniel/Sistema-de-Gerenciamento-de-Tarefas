@@ -1,0 +1,26 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model Agentproject 
+@{
+    ViewData["Title"] = "Cadastrar Agente com um Projeto";
+}
+<div class="text-center">
+
+    <h1 class="display-4">Cadastrar Novo Consultor</h1>
+
+</div>
+
+<form asp-controller="AgentProject" asp-action="CreateOnDatabase" method="post">
+  <div class="form-group">
+        <label for="IdProject">Id do projeto</label>
+        <input type="text" asp-for="IdProject" class="form-control" placeholder="Digite o Nome do Consultor">
+  </div>
+  <div class="form-group">
+        <label for="IdAgent">Id do Agente</label>
+        <input type="text" asp-for="IdAgent" class="form-control" placeholder="Digite o status do Consultor">
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="AgentProject" asp-action="CreateOnDatabase" role="button">Voltar</a>
+</form>
+
+
+

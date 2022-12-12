@@ -1,0 +1,44 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.ReportModels
+@model List<ProjectsAgentsWorkingReportModel>
+@{
+    ViewData["Title"] = "Relatório Agente / Projeto";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Agentes e Seus Projetos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id do Agente</th>
+                <th scope="col">Nome do Agente</th>
+                <th scope="col">Id do Projeto</th>
+                <th scope="col">Nome do Projeto</th>
+                <th scope="col">Descrição do Projeto</th>
+                <th scope="col">Status do Projeto</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var Report in Model)
+                {
+                    <tr>
+                        <th scope="row">@Report.IdAgent</th>
+                        <td>@Report.NameAgent</td>
+                        <td>@Report.IdProject</td>
+                        <td>@Report.NameProject</td>
+                        <td>@Report.DescriptionProject</td>
+                        <td>@Report.StatusProject</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-secondary btn-lg" role="button" asp-controller="AgentProjectReport" asp-action="GeneratePDF">Gerar Relatório em PDF</a>
+    </div>
+</div>
+
+
+

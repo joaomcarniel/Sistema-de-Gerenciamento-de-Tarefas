@@ -1,0 +1,39 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model Project
+
+@{
+    ViewData["Title"] = "Cadastrar Novo Projeto";
+}
+<div class="text-center">
+  
+    <h1 class="display-4">Cadastrar Projeto</h1>
+    
+</div>
+
+<form asp-controller="Project" asp-action="CreateOnDatabase" method="post">
+  <div class="form-group">
+        <label for="IdCustomer">Código do Cliente</label>
+        <input type="text" asp-for="IdCustomer" class="form-control" placeholder="Digite o código do Cliente">
+  </div>
+  <div class="form-group">
+        <label for="StatusProject">Status do Projeto</label>
+        <input type="text" asp-for="StatusProject" class="form-control" placeholder="Digite o status do Projeto">
+  </div>
+  <div class="form-group">
+        <label for="NameProject">Nome do Projeto</label>
+        <input type="text" asp-for="NameProject" class="form-control" placeholder="Digite o Nome do Projeto">
+  </div>
+  <div class="form-group">
+        <label for="LeaderProject">Código do Líder do Projeto</label>
+        <input type="text" asp-for="LeaderProject" class="form-control" placeholder="Digite o Código do Líder do Projeto">
+  </div>
+  <div class="form-group">
+        <label for="DescriptionProject">Descrição do Projeto</label>
+        <input type="text" asp-for="DescriptionProject" class="form-control" placeholder="Digite a descrição do Projeto">
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Project" asp-action="CreateOnDatabase" role="button">Voltar</a>
+</form>
+
+
+

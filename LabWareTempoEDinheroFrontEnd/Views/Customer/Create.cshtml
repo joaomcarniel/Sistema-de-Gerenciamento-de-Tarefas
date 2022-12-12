@@ -1,0 +1,33 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model Customer 
+@{
+    ViewData["Title"] = "Cadastrar Novo Cliente";
+}
+<div class="text-center">
+    <h1 class="display-4">Cadastrar Cliente</h1>
+</div>
+
+<form asp-controller="Customer" asp-action="CreateOnDatabase" method="post">
+    <div class="form-group">
+        <label for="StatusCustomer">Status do Cliente</label>
+        <input type="text" asp-for="StatusCustomer" class="form-control" placeholder="Digite o Status do Cliente">
+    </div>
+  <div class="form-group">
+        <label for="NameCustomer">Nome do Cliente</label>
+        <input type="text" asp-for="NameCustomer" class="form-control" placeholder="Digite o Nome do Cliente">
+  </div>
+  <div class="form-group">
+        <label for="CpfCustomer">CPF do Cliente</label>
+        <input type="text" asp-for="CpfCustomer" class="form-control" placeholder="Digite o CPF do Cliente">
+  </div>
+  <div class="form-group">
+        <label for="AddressCustomer">Endereço do Cliente</label>
+        <input type="text" asp-for="AddressCustomer" class="form-control" placeholder="Digite o Endereço do Cliente">
+  </div>
+  <div class="form-group">
+        <label for="TelephoneCustomer">Telefone do Cliente</label>
+        <input type="text" asp-for="TelephoneCustomer" class="form-control" placeholder="Digite o Telefone do Cliente">
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+    <a class="btn btn-secondary btn-block" asp-controller="Customer" asp-action="CreateOnDatabase" role="button">Voltar</a>
+</form>

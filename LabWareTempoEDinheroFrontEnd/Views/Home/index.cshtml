@@ -1,0 +1,42 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.ReportModels
+@model List<TasksFromProjectReportModel>
+@{
+    ViewData["Title"] = "Tarefas e Seus Projetos";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Tarefas e Seus Projetos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id da Tarefa</th>
+                <th scope="col">Objetivo</th>
+                <th scope="col">Status da Tarefa</th>
+                <th scope="col">Nome do Projeto</th>
+                <th scope="col">Descrição do Projeto</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var Report in Model)
+                {
+                    <tr>
+                        <th scope="row">@Report.IdTask</th>
+                        <td>@Report.Objective</td>
+                        <td>@Report.StatusTask</td>
+                        <td>@Report.NameProject</td>
+                        <td>@Report.DescriptionProject</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-secondary btn-lg" role="button" asp-controller="Home" asp-action="GeneratePDF">Gerar Relatório em PDF</a>
+    </div>
+</div>
+
+
+

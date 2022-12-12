@@ -1,0 +1,49 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model List<TaskModel>
+@{
+    ViewData["Title"] = "Cadastro de Tarefas";
+}
+
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Task" asp-action="Create">Adicionar Tarefa</a>
+    </div>
+    <br />
+
+    <h1 class="display-4">Listagem de Tarefas</h1>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id Tarefa</th>
+                <th scope="col">Id Do Agente do Projeto</th>
+                <th scope="col">Objetivo</th>
+                <th scope="col">Status da Tarefa</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var task in Model)
+                {
+                    <tr>
+                        <th scope="row">@task.IdTask</th>
+                        <td>@task.IdAgentProject</td>
+                        <td>@task.Objective</td>
+                        <td>@task.StatusTask</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@task.IdTask" asp-controller="Task" asp-action="Update">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@task.IdTask" asp-controller="Task" asp-action="ConfirmDelete">Deletar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

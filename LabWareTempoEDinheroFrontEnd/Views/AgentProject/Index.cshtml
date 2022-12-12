@@ -1,0 +1,50 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model List<Agentproject> 
+@{
+    ViewData["Title"] = "Cadastro de Ligação entre Agentes e Projetos";
+}
+
+<div class="text-center">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="AgentProject" asp-action="Create">Adicionar Ligação Entre Agente e Projeto</a>
+    </div>
+    <br />
+
+    <h1 class="display-4">Listagem de Agentes e Seus Projetos</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id Agente / Projeto</th>
+                <th scope="col">Id Projeto</th>
+                <th scope="col">Id Agente</th>
+                <th scope="col">Data de Início do Projeto</th>
+                <th scope="col">Data do Fim do Projeto</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var agentProject in Model)
+                {
+                    <tr>
+                        <th scope="row">@agentProject.IdAgentProject</th>
+                        <td>@agentProject.IdProject</td>
+                        <td>@agentProject.IdAgent</td>
+                        <td>@agentProject.StartAction</td>
+                        <td>@agentProject.EndAction</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-id="@agentProject.IdAgentProject" asp-controller="AgentProject" asp-action="Update">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@agentProject.IdAgentProject" asp-controller="AgentProject" asp-action="ConfirmDelete">Deletar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

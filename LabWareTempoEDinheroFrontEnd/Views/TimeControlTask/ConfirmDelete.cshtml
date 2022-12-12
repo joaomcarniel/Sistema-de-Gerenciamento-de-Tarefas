@@ -1,0 +1,13 @@
+﻿@using LabWareTempoEDinheroFrontEnd.Models.DbModels
+@model Timecontroltask
+@{
+    ViewData["Title"] = "Confirmação de Deleção";
+}
+<div class="text-center">
+
+    <h3>Realmente deseja apagar este Registro de Tempo? Id: @Model.IdTimeControlTask?</h3>
+
+</div>
+
+<a class="btn btn-primary btn-block" role="button" asp-controller="TimeControlTask" asp-action="Index">Cancelar Exclusão</a>
+<a class="btn btn-danger btn-block" role="button" asp-route-id="@Model.IdTimeControlTask" asp-controller="TimeControlTask" asp-action="Delete">Confirmar Exclusão</a>
